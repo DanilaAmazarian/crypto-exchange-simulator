@@ -26,4 +26,4 @@ jobs:
             exit 1
           fi
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=accept-new "root@${SSH_HOST}" \
-            "set -eu; cd /projects/crypto-exchange-simulator; git pull --ff-only; docker compose up --build -d"
+            "set -eu; cd /root/projects/crypto-exchange-simulator; git pull --ff-only; docker compose up --build -d"
