@@ -20,8 +20,12 @@ jobs:
         run: |
           set -eu
           install -m 700 -d ~/.ssh
-          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          printf '%s\n' "$SSH_KEY" | tr -d '\r' | sed 's/\\n/\n/g' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
+          if ! ssh-keygen -y -f ~/.ssh/deploy_key >/dev/null; then
+            echo "SSH_KEY is not a readable private key. Save the private file, not the .pub, including the BEGIN and END lines."
+            exit 1
+          fi
           path="${DEPLOY_PATH:-/root/crypto-exchange-simulator}"
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=accept-new "root@${SSH_HOST}" \
             "set -eu; cd '${path}'; git pull --ff-only; docker compose up --build -d"
