@@ -1,0 +1,28 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0f14;
+  --panel: #121821;
+  --panel-2: #1a2330;
+  --line: #243140;
+  --text: #edf2f7;
+  --muted: #93a1b5;
+  --accent: #8eb6ff;
+  --up: #3dd68c;
+  --down: #ff6b7a;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-weight: 600;
+}

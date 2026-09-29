@@ -1,0 +1,17 @@
+<div class="shell">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">{{ 'app.eyebrow' | translate }}</p>
+      <h1>{{ 'app.title' | translate }}</h1>
+    </div>
+    <div class="topbar__aside">
+      <app-language-switch />
+      <p class="hint">{{ 'app.hint' | translate }}</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <app-market-board />
+    <app-price-scene />
+  </main>
+</div>

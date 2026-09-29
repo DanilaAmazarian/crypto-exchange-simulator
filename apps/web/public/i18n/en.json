@@ -1,0 +1,41 @@
+{
+  "app": {
+    "documentTitle": "Crypto exchange simulator",
+    "eyebrow": "Simulator",
+    "title": "Crypto exchange",
+    "hint": "BTC, ETH and SOL · updates every 500 ms"
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "board": {
+    "title": "Quotes",
+    "tick": "Tick {{sequence}} · {{time}}",
+    "waiting": "Waiting for the price stream…",
+    "pair": "Pair",
+    "price": "Price",
+    "change": "Change",
+    "percent": "%"
+  },
+  "status": {
+    "live": "Online",
+    "offline": "Disconnected",
+    "connecting": "Connecting"
+  },
+  "assets": {
+    "BTC": "Bitcoin",
+    "ETH": "Ethereum",
+    "SOL": "Solana"
+  },
+  "scene": {
+    "title": "BTC cube",
+    "waiting": "Waiting for BTC",
+    "caption": "{{change}} · {{speed}} rad/s · {{direction}}",
+    "canvas": "Rotating cube. Spin speed follows the Bitcoin price change",
+    "direction": {
+      "up": "up",
+      "down": "down",
+      "flat": "flat"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<section class="board" aria-labelledby="board-title">
+  <header class="board__header">
+    <div>
+      <h2 id="board-title">{{ 'board.title' | translate }}</h2>
+      <p>{{ 'board.tick' | translate: { sequence: sequence(), time: updatedAt() } }}</p>
+    </div>
+    <span class="status" [attr.data-status]="status()">{{ ('status.' + status()) | translate }}</span>
+  </header>
+
+  @if (rows().length === 0) {
+    <p class="empty">{{ 'board.waiting' | translate }}</p>
+  } @else {
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">{{ 'board.pair' | translate }}</th>
+            <th scope="col">{{ 'board.price' | translate }}</th>
+            <th scope="col">{{ 'board.change' | translate }}</th>
+            <th scope="col">{{ 'board.percent' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of rows(); track row.symbol) {
+            <tr>
+              <th scope="row">
+                <span class="symbol">{{ row.symbol }}</span>
+                <span class="name">{{ ('assets.' + row.symbol) | translate }}</span>
+              </th>
+              <td>{{ row.priceLabel }}</td>
+              <td [attr.data-direction]="row.direction">{{ row.changeLabel }}</td>
+              <td [attr.data-direction]="row.direction">{{ row.percentLabel }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

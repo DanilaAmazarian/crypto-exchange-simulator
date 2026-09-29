@@ -1,0 +1,21 @@
+<section class="scene-card" aria-labelledby="scene-title">
+  <header class="scene-card__header">
+    <h2 id="scene-title">{{ 'scene.title' | translate }}</h2>
+    @if (hasQuote()) {
+      <p>
+        {{
+          'scene.caption'
+            | translate
+              : {
+                  change: changeLabel(),
+                  speed: speedLabel(),
+                  direction: (directionKey() | translate),
+                }
+        }}
+      </p>
+    } @else {
+      <p>{{ 'scene.waiting' | translate }}</p>
+    }
+  </header>
+  <canvas #viewport [attr.aria-label]="'scene.canvas' | translate"></canvas>
+</section>

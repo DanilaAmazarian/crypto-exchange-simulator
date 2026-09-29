@@ -1,0 +1,7 @@
+<div class="switch" role="group" [attr.aria-label]="'lang.label' | translate">
+  @for (lang of langs; track lang) {
+    <button type="button" [attr.aria-pressed]="current() === lang" (click)="use(lang)">
+      {{ lang.toUpperCase() }}
+    </button>
+  }
+</div>

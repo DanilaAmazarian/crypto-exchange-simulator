@@ -1,0 +1,41 @@
+{
+  "app": {
+    "documentTitle": "Симулятор криптобиржи",
+    "eyebrow": "Simulator",
+    "title": "Криптобиржа",
+    "hint": "BTC, ETH и SOL · обновление каждые 500 мс"
+  },
+  "lang": {
+    "label": "Язык"
+  },
+  "board": {
+    "title": "Котировки",
+    "tick": "Тик {{sequence}} · {{time}}",
+    "waiting": "Ожидание потока цен…",
+    "pair": "Пара",
+    "price": "Цена",
+    "change": "Изменение",
+    "percent": "%"
+  },
+  "status": {
+    "live": "Онлайн",
+    "offline": "Нет соединения",
+    "connecting": "Подключение"
+  },
+  "assets": {
+    "BTC": "Биткоин",
+    "ETH": "Эфириум",
+    "SOL": "Solana"
+  },
+  "scene": {
+    "title": "Куб BTC",
+    "waiting": "Ожидание BTC",
+    "caption": "{{change}} · {{speed}} рад/с · {{direction}}",
+    "canvas": "Вращающийся куб. Скорость зависит от изменения цены Bitcoin",
+    "direction": {
+      "up": "вверх",
+      "down": "вниз",
+      "flat": "ровно"
+    }
+  }
+}
