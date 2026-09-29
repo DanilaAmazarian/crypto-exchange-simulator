@@ -1,5 +1,7 @@
 # Web
 
+[English](#english)
+
 Angular-клиент симулятора. `MarketSocketService` слушает Socket.IO через RxJS, `MarketStateService` переводит поток в Signals. Таблица читает котировки, сцена Three.js читает изменение BTC.
 
 Тексты интерфейса лежат в `public/i18n/ru.json` и `public/i18n/en.json`. Переключатель в шапке вызывает `TranslateService.use`, выбранный язык сохраняется в `localStorage`.
@@ -14,3 +16,26 @@ npm start
 ```
 
 API должен быть доступен на `http://localhost:3000/market`. В контейнере адрес сокета приходит из `PUBLIC_HOST` или `MARKET_SOCKET_URL` и записывается в `app-config.js` при старте.
+
+Общая схема репозитория описана в корневом `README.md`.
+
+## English
+
+[Русский](#web)
+
+The Angular client. `MarketSocketService` listens to Socket.IO through RxJS, and `MarketStateService` turns that stream into Signals. The table reads the quotes. The Three.js scene reads the BTC change.
+
+Interface copy lives in `public/i18n/ru.json` and `public/i18n/en.json`. The header switch calls `TranslateService.use`, and the chosen language is stored in `localStorage`.
+
+In the full setup this is the `web` container from the root `docker-compose.yml`: nginx serves the production build on port `4200`.
+
+Without Docker:
+
+```bash
+npm install
+npm start
+```
+
+The API must be reachable at `http://localhost:3000/market`. In the container, the socket address comes from `PUBLIC_HOST` or `MARKET_SOCKET_URL` and is written to `app-config.js` at startup.
+
+The repository overview is in the root `README.md`.
