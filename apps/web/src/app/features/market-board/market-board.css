@@ -100,3 +100,33 @@ td[data-direction='up'] {
 td[data-direction='down'] {
   color: var(--down);
 }
+
+.trade {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.trade button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.trade button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.trade__buy {
+  color: var(--up);
+}
+
+.trade__sell {
+  color: var(--down);
+}

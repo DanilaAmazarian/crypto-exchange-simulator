@@ -9,6 +9,17 @@ export function formatUsd(value: number): string {
   return usd.format(value);
 }
 
+export function formatSignedUsd(value: number): string {
+  if (value > 0) {
+    return `+${usd.format(value)}`;
+  }
+  return usd.format(value);
+}
+
+export function formatQty(value: number): string {
+  return new Intl.NumberFormat('en-US', { maximumFractionDigits: 8 }).format(value);
+}
+
 export function formatSigned(value: number, digits: number): string {
   const sign = value > 0 ? '+' : '';
   return `${sign}${value.toFixed(digits)}`;

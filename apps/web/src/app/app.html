@@ -13,8 +13,16 @@
     </div>
   </header>
 
+  <app-paper-account />
+
   <main class="layout">
-    <app-market-board />
-    <app-price-scene />
+    <div class="stack">
+      <app-market-board />
+      <app-trade-history />
+    </div>
+    <div class="stack">
+      <app-price-scene />
+      <app-btc-chart />
+    </div>
   </main>
 </div>

@@ -1,0 +1,92 @@
+:host {
+  display: block;
+}
+
+.account {
+  margin-bottom: 16px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+}
+
+.account__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.account__header h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.account__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.account__stats div {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--panel-2);
+}
+
+dt {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 6px 0 0;
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+dd[data-direction='up'] {
+  color: var(--up);
+}
+
+dd[data-direction='down'] {
+  color: var(--down);
+}
+
+.notional {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+.notional input,
+.reset {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+}
+
+.notional input {
+  width: 120px;
+  padding: 6px 12px;
+}
+
+.reset {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .account__stats {
+    grid-template-columns: 1fr;
+  }
+}

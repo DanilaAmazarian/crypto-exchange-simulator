@@ -1,0 +1,26 @@
+<section class="account" aria-labelledby="account-title">
+  <header class="account__header">
+    <h2 id="account-title">{{ 'account.title' | translate }}</h2>
+    <button type="button" class="reset" (click)="reset()">{{ 'account.reset' | translate }}</button>
+  </header>
+
+  <dl class="account__stats">
+    <div>
+      <dt>{{ 'account.cash' | translate }}</dt>
+      <dd>{{ cashLabel() }}</dd>
+    </div>
+    <div>
+      <dt>{{ 'account.equity' | translate }}</dt>
+      <dd>{{ equityLabel() }}</dd>
+    </div>
+    <div>
+      <dt>{{ 'account.pnl' | translate }}</dt>
+      <dd [attr.data-direction]="pnlDirection()">{{ pnlLabel() }}</dd>
+    </div>
+  </dl>
+
+  <label class="notional">
+    <span>{{ 'account.notional' | translate }}</span>
+    <input type="number" min="1" step="1" [value]="notional()" (input)="onNotional($event)" />
+  </label>
+</section>

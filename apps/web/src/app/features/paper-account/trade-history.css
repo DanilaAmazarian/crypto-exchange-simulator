@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.history {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+}
+
+.history h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.history__empty {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+ol {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+li {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 8px 12px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.time {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.side[data-side='buy'] {
+  color: var(--up);
+}
+
+.side[data-side='sell'] {
+  color: var(--down);
+}
+
+.symbol {
+  font-weight: 600;
+}

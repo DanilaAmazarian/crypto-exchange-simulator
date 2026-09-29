@@ -18,6 +18,8 @@
             <th scope="col">{{ 'board.price' | translate }}</th>
             <th scope="col">{{ 'board.change' | translate }}</th>
             <th scope="col">{{ 'board.percent' | translate }}</th>
+            <th scope="col">{{ 'account.quantity' | translate }}</th>
+            <th scope="col">{{ 'account.trade' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +32,17 @@
               <td>{{ row.priceLabel }}</td>
               <td [attr.data-direction]="row.direction">{{ row.changeLabel }}</td>
               <td [attr.data-direction]="row.direction">{{ row.percentLabel }}</td>
+              <td>{{ row.quantityLabel }}</td>
+              <td>
+                <div class="trade">
+                  <button type="button" class="trade__buy" [disabled]="!row.canBuy" (click)="buy(row.symbol)">
+                    {{ 'account.buy' | translate }}
+                  </button>
+                  <button type="button" class="trade__sell" [disabled]="!row.canSell" (click)="sell(row.symbol)">
+                    {{ 'account.sell' | translate }}
+                  </button>
+                </div>
+              </td>
             </tr>
           }
         </tbody>

@@ -1,0 +1,20 @@
+<section class="history" aria-labelledby="history-title">
+  <h2 id="history-title">{{ 'history.title' | translate }}</h2>
+
+  @if (rows().length === 0) {
+    <p class="history__empty">{{ 'history.empty' | translate }}</p>
+  } @else {
+    <ol>
+      @for (trade of rows(); track trade.id) {
+        <li>
+          <span class="side" [attr.data-side]="trade.side">
+            {{ ('account.' + trade.side) | translate }}
+          </span>
+          <span class="symbol">{{ trade.symbol }}</span>
+          <span>{{ trade.quantityLabel }} · {{ trade.priceLabel }}</span>
+          <span class="time">{{ trade.timeLabel }} · {{ trade.notionalLabel }}</span>
+        </li>
+      }
+    </ol>
+  }
+</section>

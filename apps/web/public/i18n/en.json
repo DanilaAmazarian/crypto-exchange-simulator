@@ -13,6 +13,28 @@
     "dark": "Dark",
     "light": "Light"
   },
+  "account": {
+    "title": "Paper account",
+    "cash": "Cash",
+    "equity": "Equity",
+    "pnl": "Result",
+    "notional": "Order size",
+    "reset": "Reset",
+    "quantity": "Quantity",
+    "trade": "Trade",
+    "buy": "Buy",
+    "sell": "Sell"
+  },
+  "history": {
+    "title": "Trades",
+    "empty": "No trades yet"
+  },
+  "chart": {
+    "title": "BTC chart",
+    "window": "Last 2 minutes",
+    "waiting": "Waiting for BTC",
+    "label": "Bitcoin price over the last two minutes"
+  },
   "board": {
     "title": "Quotes",
     "tick": "Tick {{sequence}} · {{time}}",

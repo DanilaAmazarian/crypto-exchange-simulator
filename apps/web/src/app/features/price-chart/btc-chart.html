@@ -1,0 +1,19 @@
+<section class="chart" aria-labelledby="chart-title">
+  <header>
+    <h2 id="chart-title">{{ 'chart.title' | translate }}</h2>
+    <p>{{ 'chart.window' | translate }}</p>
+  </header>
+
+  @if (path()) {
+    <svg
+      [attr.viewBox]="'0 0 ' + width + ' ' + height"
+      [attr.data-direction]="direction()"
+      role="img"
+      [attr.aria-label]="'chart.label' | translate"
+    >
+      <path [attr.d]="path()" />
+    </svg>
+  } @else {
+    <p class="chart__empty">{{ 'chart.waiting' | translate }}</p>
+  }
+</section>
