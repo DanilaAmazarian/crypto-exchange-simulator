@@ -1,6 +1,6 @@
 {
   "app": {
-    "documentTitle": "Симулятор криптобиржи)",
+    "documentTitle": "Симулятор криптобиржи",
     "eyebrow": "Simulator",
     "title": "Криптобиржа",
     "hint": "BTC, ETH и SOL · обновление каждые 500 мс"
