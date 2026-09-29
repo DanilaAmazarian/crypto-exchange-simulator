@@ -34,6 +34,13 @@ h1 {
   gap: 10px;
 }
 
+.topbar__controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .hint {
   margin: 0;
   color: var(--muted);
@@ -52,8 +59,13 @@ h1 {
     display: block;
   }
 
-  .topbar__aside {
+  .topbar__aside,
+  .topbar__controls {
     align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .topbar__aside {
     margin-top: 16px;
   }
 

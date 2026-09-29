@@ -13,4 +13,4 @@ npm install
 npm start
 ```
 
-API должен быть доступен на `http://localhost:3000/market`. Адрес задаётся в `src/app/app.config.ts`.
+API должен быть доступен на `http://localhost:3000/market`. В контейнере адрес сокета приходит из `PUBLIC_HOST` или `MARKET_SOCKET_URL` и записывается в `app-config.js` при старте.

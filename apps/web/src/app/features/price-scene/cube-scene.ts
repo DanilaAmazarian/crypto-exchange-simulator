@@ -3,6 +3,7 @@ import { RotatingCubeScene } from './rotating-cube.scene';
 
 export interface MarketCubeScene {
   setChangePercent(changePercent: number): void;
+  setBackdrop(color: string): void;
   start(): void;
   dispose(): void;
 }

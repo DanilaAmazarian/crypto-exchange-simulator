@@ -59,6 +59,16 @@ export class RotatingCubeScene {
     this.material.emissive.setHex(color);
   }
 
+  setBackdrop(color: string): void {
+    if (!color) {
+      return;
+    }
+
+    const next = new Color(color);
+    this.scene.background = next;
+    this.renderer.setClearColor(next, 1);
+  }
+
   start(): void {
     this.last = performance.now();
     const loop = (now: number) => {

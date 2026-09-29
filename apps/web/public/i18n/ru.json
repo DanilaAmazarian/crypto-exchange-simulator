@@ -8,6 +8,11 @@
   "lang": {
     "label": "Язык"
   },
+  "theme": {
+    "label": "Тема",
+    "dark": "Тёмная",
+    "light": "Светлая"
+  },
   "board": {
     "title": "Котировки",
     "tick": "Тик {{sequence}} · {{time}}",

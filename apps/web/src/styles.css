@@ -1,14 +1,39 @@
 :root {
   color-scheme: dark;
-  --bg: #0b0f14;
-  --panel: #121821;
-  --panel-2: #1a2330;
-  --line: #243140;
-  --text: #edf2f7;
-  --muted: #93a1b5;
-  --accent: #8eb6ff;
-  --up: #3dd68c;
-  --down: #ff6b7a;
+
+  --palette-dark-bg: #0b0f14;
+  --palette-dark-panel: #121821;
+  --palette-dark-panel-2: #1a2330;
+  --palette-dark-line: #243140;
+  --palette-dark-text: #edf2f7;
+  --palette-dark-muted: #93a1b5;
+  --palette-dark-accent: #8eb6ff;
+  --palette-dark-up: #3dd68c;
+  --palette-dark-down: #ff6b7a;
+  --palette-dark-scene: #0e141c;
+
+  --palette-light-bg: #f3f6fb;
+  --palette-light-panel: #ffffff;
+  --palette-light-panel-2: #e7eef8;
+  --palette-light-line: #d5dfec;
+  --palette-light-text: #152033;
+  --palette-light-muted: #5d6b80;
+  --palette-light-accent: #2f6fed;
+  --palette-light-up: #0d8a4f;
+  --palette-light-down: #d1253a;
+  --palette-light-scene: #e7eef8;
+
+  --bg: var(--palette-dark-bg);
+  --panel: var(--palette-dark-panel);
+  --panel-2: var(--palette-dark-panel-2);
+  --line: var(--palette-dark-line);
+  --text: var(--palette-dark-text);
+  --muted: var(--palette-dark-muted);
+  --accent: var(--palette-dark-accent);
+  --up: var(--palette-dark-up);
+  --down: var(--palette-dark-down);
+  --scene: var(--palette-dark-scene);
+
   font-family: "Segoe UI", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);

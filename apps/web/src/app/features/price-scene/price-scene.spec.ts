@@ -27,6 +27,8 @@ class FakeCube implements MarketCubeScene {
     this.changes.push(changePercent);
   }
 
+  setBackdrop(): void {}
+
   start(): void {
     this.started = true;
   }

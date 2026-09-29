@@ -8,6 +8,11 @@
   "lang": {
     "label": "Language"
   },
+  "theme": {
+    "label": "Theme",
+    "dark": "Dark",
+    "light": "Light"
+  },
   "board": {
     "title": "Quotes",
     "tick": "Tick {{sequence}} · {{time}}",

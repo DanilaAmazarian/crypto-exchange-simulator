@@ -10,6 +10,8 @@ import {
 } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MarketStateService } from '../../core/market/market-state.service';
+import { readRootToken } from '../../core/theme/theme';
+import { ThemeService } from '../../core/theme/theme.service';
 import { formatSigned } from '../../shared/format';
 import { angularSpeedFromChange } from './btc-rotation';
 import { MARKET_CUBE_SCENE, MarketCubeScene } from './cube-scene';
@@ -23,6 +25,7 @@ import { MARKET_CUBE_SCENE, MarketCubeScene } from './cube-scene';
 export class PriceScene {
   private readonly canvas = viewChild.required<ElementRef<HTMLCanvasElement>>('viewport');
   private readonly market = inject(MarketStateService);
+  private readonly themes = inject(ThemeService);
   private readonly createScene = inject(MARKET_CUBE_SCENE);
   private scene?: MarketCubeScene;
 
@@ -56,6 +59,7 @@ export class PriceScene {
       const scene = this.createScene(this.canvas().nativeElement);
       this.scene = scene;
       scene.setChangePercent(this.market.btcQuote()?.changePercent ?? 0);
+      scene.setBackdrop(readRootToken('--scene'));
       scene.start();
       destroyRef.onDestroy(() => scene.dispose());
     });
@@ -66,6 +70,11 @@ export class PriceScene {
       // would never run again.
       const changePercent = this.market.btcQuote()?.changePercent ?? 0;
       this.scene?.setChangePercent(changePercent);
+    });
+
+    effect(() => {
+      this.themes.current();
+      this.scene?.setBackdrop(readRootToken('--scene'));
     });
   }
 }

@@ -9,7 +9,8 @@ services:
       - "3000:3000"
     environment:
       PORT: "3000"
-      CLIENT_ORIGIN: http://localhost:4200,http://127.0.0.1:4200
+      PUBLIC_HOST: ${PUBLIC_HOST:-}
+      CLIENT_ORIGIN: ${CLIENT_ORIGIN:-}
     healthcheck:
       test:
         [
@@ -30,6 +31,9 @@ services:
     image: crypto-exchange-simulator-web
     ports:
       - "4200:80"
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST:-}
+      MARKET_SOCKET_URL: ${MARKET_SOCKET_URL:-}
     depends_on:
       api:
         condition: service_healthy

@@ -5,7 +5,10 @@
       <h1>{{ 'app.title' | translate }}</h1>
     </div>
     <div class="topbar__aside">
-      <app-language-switch />
+      <div class="topbar__controls">
+        <app-theme-switch />
+        <app-language-switch />
+      </div>
       <p class="hint">{{ 'app.hint' | translate }}</p>
     </div>
   </header>
