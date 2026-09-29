@@ -30,7 +30,7 @@ npm start
 Публичный адрес задаётся снаружи, без правки кода. В `.env` рядом с `docker-compose.yml` или в окружении оболочки:
 
 ```bash
-PUBLIC_HOST=213.21.241.146
+PUBLIC_HOST=127.0.0.1
 ```
 
 API возьмёт из него origin страницы `http://<PUBLIC_HOST>:4200`, контейнер web запишет сокет `http://<PUBLIC_HOST>:3000/market` в `app-config.js` при старте. Явные `CLIENT_ORIGIN` (список через запятую) и `MARKET_SOCKET_URL` перекрывают этот адрес. Если переменных нет, остаются `http://localhost:4200`, `http://127.0.0.1:4200` и локальный сокет. Порт API — `PORT` (по умолчанию `3000`).
@@ -127,7 +127,7 @@ The browser opens the page on the host. Without a public address the socket poin
 Set the public address from the outside, without editing code. Put it in `.env` next to `docker-compose.yml`, or in the shell environment:
 
 ```bash
-PUBLIC_HOST=213.21.241.146
+PUBLIC_HOST=127.0.0.1
 ```
 
 The API turns that into the page origin `http://<PUBLIC_HOST>:4200`. The web container writes the socket `http://<PUBLIC_HOST>:3000/market` into `app-config.js` when it starts. An explicit `CLIENT_ORIGIN` (comma-separated list) and `MARKET_SOCKET_URL` override that address. With no variables set, the defaults are `http://localhost:4200`, `http://127.0.0.1:4200`, and the local socket. The API port is `PORT` (default `3000`).
