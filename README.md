@@ -4,6 +4,8 @@
 
 Учебный каркас: NestJS публикует случайные котировки BTC, ETH и SOL по WebSocket, Angular показывает их в таблице и крутит 3D-куб со скоростью, которая зависит от изменения цены Bitcoin.
 
+![Интерфейс на русском: бумажный счёт, котировки, куб и график BTC](docs/screenshot-ru.png)
+
 ## Стек
 
 - API: NestJS 11, Socket.IO, RxJS `timer`
@@ -98,6 +100,8 @@ apps/web/src/app
 [Русский](#симулятор-криптобиржи)
 
 A teaching skeleton: NestJS publishes random BTC, ETH, and SOL quotes over a WebSocket, and Angular shows them in a table and spins a 3D cube whose speed follows the Bitcoin price change.
+
+![English interface: paper account, quotes, cube, and BTC chart](docs/screenshot-en.png)
 
 ### Stack
 
