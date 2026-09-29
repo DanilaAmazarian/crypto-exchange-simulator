@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+concurrency:
+  group: deploy-server
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rebuild containers on the server
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          set -eu
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          path="${DEPLOY_PATH:-/root/crypto-exchange-simulator}"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=accept-new "root@${SSH_HOST}" \
+            "set -eu; cd '${path}'; git pull --ff-only; docker compose up --build -d"
