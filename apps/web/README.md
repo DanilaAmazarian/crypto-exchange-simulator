@@ -4,6 +4,10 @@ Angular-клиент симулятора. `MarketSocketService` слушает 
 
 Тексты интерфейса лежат в `public/i18n/ru.json` и `public/i18n/en.json`. Переключатель в шапке вызывает `TranslateService.use`, выбранный язык сохраняется в `localStorage`.
 
+В общем запуске это контейнер `web` из корневого `docker-compose.yml`: nginx отдаёт production-сборку на порту `4200`.
+
+Локально без Docker:
+
 ```bash
 npm install
 npm start

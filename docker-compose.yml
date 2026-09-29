@@ -1,0 +1,36 @@
+name: crypto-exchange-simulator
+
+services:
+  api:
+    build:
+      context: ./apps/api
+    image: crypto-exchange-simulator-api
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      CLIENT_ORIGIN: http://localhost:4200,http://127.0.0.1:4200
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/health').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./apps/web
+    image: crypto-exchange-simulator-web
+    ports:
+      - "4200:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped

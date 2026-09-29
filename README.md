@@ -9,22 +9,21 @@
 
 ## Запуск
 
-Нужен Node.js 22+.
+Нужны Docker и Docker Compose. API и Angular собираются в отдельные образы и запускаются своими контейнерами.
 
 ```bash
-npm install --prefix apps/api
-npm install --prefix apps/web
-npm install
 npm start
 ```
+
+Та же команда без npm: `docker compose up --build`. Остановка: `npm run stop`.
 
 - API: http://localhost:3000/health
 - Сокет: `http://localhost:3000/market`, событие `market.tick` каждые 500 мс
 - Web: http://localhost:4200
 
-Отдельные процессы: `npm run start:api` и `npm run start:web`.
+Браузер открывает страницу с хоста, поэтому сокет по-прежнему указывает на `http://localhost:3000/market`. Контейнеры между собой по этому адресу не ходят.
 
-Тесты: `npm test` в корне, либо `npm run test:api` и `npm run test:web`.
+Локально без Docker, из каталога приложения: `npm install` и `npm run start:dev` для API, `npm start` для Angular. Тесты: `npm test` в корне, либо `npm run test:api` и `npm run test:web`.
 
 Адреса клиента для CORS задаются переменной `CLIENT_ORIGIN` — список через запятую. По умолчанию разрешены `http://localhost:4200` и `http://127.0.0.1:4200`. Порт API — `PORT` (по умолчанию `3000`). URL сокета на фронте задаётся в `apps/web/src/app/app.config.ts`.
 
@@ -64,6 +63,10 @@ MarketSocketService (Observable)  ->  MarketStateService (Signal)
 ## Структура
 
 ```text
+apps/api/Dockerfile      образ NestJS
+apps/web/Dockerfile      образ Angular за nginx
+docker-compose.yml       контейнеры api и web
+
 apps/api/src/market
   price-step.ts        чистая функция случайного шага
   market.service.ts    общее состояние котировок
