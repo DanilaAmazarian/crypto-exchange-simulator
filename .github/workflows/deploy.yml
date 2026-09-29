@@ -1,4 +1,4 @@
-name: Deploy
+name: Test and deploy
 
 on:
   push:
@@ -9,7 +9,30 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            apps/api/package-lock.json
+            apps/web/package-lock.json
+      - name: Test the API
+        working-directory: apps/api
+        run: |
+          npm ci
+          npm test
+      - name: Test the web app
+        working-directory: apps/web
+        run: |
+          npm ci
+          npm test
+
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Rebuild containers on the server
